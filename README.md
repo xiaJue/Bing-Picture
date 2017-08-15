@@ -1,6 +1,6 @@
-## PictureBing<br>
+## PictureBing<br><br>
 获取并显示必应图片
-<br><br>
+<br>
 使用的除谷歌提供外的开源框架:<br>
 下拉刷新[TwinklingRefreshLayout](https://github.com/lcodecorex/TwinklingRefreshLayout)
 <br>
@@ -11,9 +11,9 @@
 本地缓存图片[DiskLruCache](https://github.com/JakeWharton/DiskLruCache)
 <br><br>
 数据来源：必应
-<br><br>
+<br>
 图片数据来源：https://bing.ioliu.cn/
-<br><br>
+<br>
 www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=8
-<br><br>
+<br>
 [下载apk](https://github.com/xiaJue/PictureBing/raw/master/%E5%AE%89%E8%A3%85%E5%8C%85.apk)
