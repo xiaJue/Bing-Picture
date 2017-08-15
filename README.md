@@ -1,13 +1,13 @@
 ## PictureBing<br>
 获取并显示必应图片
 <br><br>
-使用除谷歌外的开源框架<br><br>
+使用的除谷歌提供外的开源框架:<br>
 下拉刷新[TwinklingRefreshLayout](https://github.com/lcodecorex/TwinklingRefreshLayout)
 <br>
 显示超大图片[subsampling-scale-image-view](https://github.com/davemorrissey/subsampling-scale-image-view)
 <br>
 访问网络[okhttp](https://github.com/square/okhttp)
-<br><br>
+<br>
 本地缓存图片[DiskLruCache](https://github.com/JakeWharton/DiskLruCache)
 <br><br>
 数据来源：必应
