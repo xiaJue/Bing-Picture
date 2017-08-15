@@ -12,6 +12,7 @@ import com.as.xiajue.picturebing.NetUtils.JsonUtils;
 import com.as.xiajue.picturebing.database.HomeItemInfoDao;
 import com.as.xiajue.picturebing.dialog.DialogManager;
 import com.as.xiajue.picturebing.model.HomeItemData;
+import com.as.xiajue.picturebing.utils.L;
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
 
 import java.io.IOException;
@@ -88,6 +89,7 @@ public class HomeNetDataAdapter {
      */
     private String getUrl(int idx, int n) {
         String mUrl = Const.URL_ADDRESS;
+        L.e("URL=....."+mUrl + idx + "&n=" + n);
         return mUrl + idx + "&n=" + n;
     }
 
