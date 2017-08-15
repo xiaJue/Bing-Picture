@@ -5,10 +5,10 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewConfiguration;
 
 import com.as.xiajue.picturebing.Const;
 import com.as.xiajue.picturebing.NetUtils.HttpUtils;
@@ -21,12 +21,12 @@ import com.as.xiajue.picturebing.dialog.DialogManager;
 import com.as.xiajue.picturebing.model.HomeItemData;
 import com.as.xiajue.picturebing.model.MaxPicItemData;
 import com.as.xiajue.picturebing.utils.DensityUtils;
+import com.as.xiajue.picturebing.utils.MenuUtils;
 import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter;
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
 import com.lcodecore.tkrefreshlayout.header.progresslayout.ProgressLayout;
 
 import java.io.Serializable;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,7 +47,7 @@ public class HomeActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         //始终在右上角显示菜单
-        showRightTopMenu();
+        MenuUtils.showRightTopMenu(this);
         initial();//初始化数据
         setEvent();//设置各种事件
     }
@@ -153,41 +153,23 @@ public class HomeActivity extends BaseActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+    /**
+     * 始终在右上角显示菜单-有些手机点击菜单键后在手机下方显示菜单
+     */
+    @Override
+    public boolean onKeyUp(int keycode, KeyEvent e) {
+        switch(keycode) {
+            case KeyEvent.KEYCODE_MENU:
+                mToolbar.showOverflowMenu();
+                return true;
+        }
+        return super.onKeyUp(keycode, e);
+    }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         HttpUtils.getInstance(this).cacheFlush();
 //        mHomeNetAdapter.addToDatabase();//将数据存储到数据库
-    }
-
-//    /**
-//     * 他的父类BaseActivity需要得到actionBar的颜色来设置状态栏的颜色
-//     * 所以需要在本类onCreate前得到toolbar的实例
-//     *
-//     * @return Toolbar
-//     */
-//    @Override
-//    protected PicActionBar getToolbar() {
-//        setContentView(R.layout.activity_home);
-////        mActionBar = (PicActionBar) findViewById(R.id.home_actionBar);
-//        return mActionBar;
-//    }
-
-    /**
-     * 始终在右上角显示一个省略按钮菜单。因为有些手机会默认在手机下方显示菜单
-     */
-    private void showRightTopMenu() {
-        try {
-            ViewConfiguration config = ViewConfiguration.get(this);
-            Field menuKeyField = ViewConfiguration.class
-                    .getDeclaredField("sHasPermanentMenuKey");
-            if (menuKeyField != null) {
-                menuKeyField.setAccessible(true);
-                menuKeyField.setBoolean(config, false);
-            }
-        } catch (Exception e) {
-
-        }
     }
 }
