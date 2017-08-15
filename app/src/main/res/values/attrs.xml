@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--PicActionBar 自定义属性-->
+    <declare-styleable name="PicActionBar">
+        <attr name="text" format="string"/>
+        <attr name="titleTextSize" format="dimension"/>
+        <attr name="textColor" format="color"/>
+        <attr name="bgColor" format="color"/>
+    </declare-styleable>
+    <declare-styleable name="TranBackTextView">
+        <attr name="backColor" format="color"/>
+    </declare-styleable>
+    <declare-styleable name="DateTranBackTextView">
+        <attr name="dateText" format="string"/>
+        <attr name="dateTextColor" format="color"/>
+        <attr name="dateTextSize" format="dimension"/>
+        <attr name="dateTextRight" format="boolean"/>
+        <attr name="dateTextLeft" format="boolean"/>
+    </declare-styleable>
+</resources>

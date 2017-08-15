@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Picture&amp;Bing</string>
+    <string name="dateTextInit">公元...N世纪</string>
+    <string name="loading">正在加载中...</string>
+    <string name="save_success">保存成功</string>
+    <string name="save_failure">保存失败</string>
+    <string name="save_exist">已经保存过了哦</string>
+    <string name="share_how">要分享给谁呢?</string>
+    <string name="dialog_text">介里会每天更新一张图片\n图片数据来源：
+        <html><a href='https://bing.ioliu.cn/'>
+            https://bing.ioliu.cn/</a>\n使用的开源框架：\n<a href='#'>TwinklingRefreshLayout</a>\n
+            <a href='#'>DiskLruCache</a>\n
+            <a href='#'>okHttp</a>\n
+            <a href='#'>subsampling-scale-image-view</a>\n
+            <a href='#'>design24.1.0</a>\n
+            数据的获取根据
+            <a href='#'>bing.com/HPImageArchive.aspx?format=js&amp;idx=2&amp;n=1</a>
+            返回JSON\n它只能获取到大概10天的数据，但如果已经加载过的话会缓存在本地哦！</html>\n
+    </string>
+    <string name="about_title">关于^ω^ </string>
+    <string name="internet_error_dialog_title"><![CDATA[玩坏了﹏没有网络(；°○° )]]></string>
+    <string name="dialog_text1"><html><a href='#'>把手机扔出40米</a></html></string>
+    <string name="dialog_text2"><html><a href='#'>让手机自由落体</a></html></string>
+    <string name="to_set_internet"><html><a href='#'>连接网络</a></html></string>
+    <string name="lihai">厉害</string>
+    <string name="ccfd">手机瑟瑟发抖...</string>
+    <string name="save">保存</string>
+    <string name="share">分享</string>
+</resources>
