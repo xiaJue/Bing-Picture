@@ -2,6 +2,7 @@ package com.as.xiajue.picturebing.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -44,7 +45,7 @@ public class HomeAdapter extends RecyclerView.Adapter {
         mCacheUtils = new CacheUtils(mContext);
         mCacheUtils.initialMemoryCache();//初始化内存缓存
         mCacheUtils.initialSdCache();//初始化本地缓存
-        mHttpUtils = HttpUtils.getInstance(mContext);//单例模式。所以无限new不用管资源问题
+        mHttpUtils = HttpUtils.getInstance(mContext);//单例模式。
     }
 
     @Override
@@ -87,17 +88,22 @@ public class HomeAdapter extends RecyclerView.Adapter {
                 .LoadCompressBitmapCallback() {
             @Override
             public void finish(boolean isSuccess, final Bitmap bitmap) {
-                if (isSuccess) {
-                    mContext.runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            /**
-                             * 运行在UI线程
-                             */
+//                if (isSuccess) {
+                mContext.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        /**
+                         * 运行在UI线程
+                         */
+                        if (bitmap != null) {
                             setViewHeight(h, bitmap);
+                        } else {
+                            setViewHeight(h, BitmapFactory.decodeResource(mContext.getResources(),
+                                    R.mipmap.image_load_failure));
                         }
-                    });
-                }
+                    }
+                });
+//                }
             }
         });
     }

@@ -149,7 +149,7 @@ public class HttpUtils {
     }
 
     /**
-     * 加载图片的回调接口
+     * 加载网络图片的回调接口
      */
     public interface LoadCompressBitmapCallback {
         void finish(boolean isSuccess, Bitmap bitmap);

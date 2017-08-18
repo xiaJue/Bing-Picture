@@ -16,6 +16,10 @@ public class Const {
     public static int itemSpace;//条目间的间距
     public static Context context;
 
+    /**
+     * 初始化条目边距
+     * @param context
+     */
     public static void initialItemSpace(Context context) {
         itemSpace = DensityUtils.dp2px(context, 5);//条目间的间距
     }

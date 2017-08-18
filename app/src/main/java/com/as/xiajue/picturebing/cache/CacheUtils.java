@@ -257,7 +257,6 @@ public class CacheUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return;
     }
 
     /**

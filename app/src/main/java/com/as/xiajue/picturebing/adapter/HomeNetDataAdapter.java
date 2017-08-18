@@ -12,7 +12,6 @@ import com.as.xiajue.picturebing.NetUtils.JsonUtils;
 import com.as.xiajue.picturebing.database.HomeItemInfoDao;
 import com.as.xiajue.picturebing.dialog.DialogManager;
 import com.as.xiajue.picturebing.model.HomeItemData;
-import com.as.xiajue.picturebing.utils.L;
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
 
 import java.io.IOException;
@@ -79,7 +78,6 @@ public class HomeNetDataAdapter {
         };
     }
 
-
     /**
      * 获得需要的数据的url‘即根据服务器端的JSON获取格式拼装出url
      *
@@ -89,7 +87,6 @@ public class HomeNetDataAdapter {
      */
     private String getUrl(int idx, int n) {
         String mUrl = Const.URL_ADDRESS;
-        L.e("URL=....."+mUrl + idx + "&n=" + n);
         return mUrl + idx + "&n=" + n;
     }
 

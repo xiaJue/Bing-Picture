@@ -59,7 +59,7 @@
         <!-- 弹出层垂直方向上的偏移，即在竖直方向上距离Toolbar的距离，值为负则会盖住Toolbar -->
         <item name="android:dropDownVerticalOffset">2dp</item>
         <!-- 弹出层水平方向上的偏移，即距离屏幕左边的距离，负值会导致右边出现空隙 -->
-        <item name="android:dropDownHorizontalOffset">-10dp</item>
+        <item name="android:dropDownHorizontalOffset">0dp</item>
     </style>
 
 </resources>

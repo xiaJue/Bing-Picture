@@ -35,7 +35,7 @@ import java.util.List;
  */
 
 public class HomeActivity extends BaseActivity {
-    private static final int itemSpace = Const.itemSpace;//条目间的间距
+    private static int itemSpace;//条目间的间距
     private static final int itemLinCount = Const.ITEM_LIN_COUNT;//一行显示的条目个数
     private TwinklingRefreshLayout mRefreshLayout;//刷新组件
     private RecyclerView mRecyclerView;
@@ -71,6 +71,7 @@ public class HomeActivity extends BaseActivity {
         mHomeNetAdapter.setRefreshLayout(mRefreshLayout);
         mCacheUtils = new CacheUtils(this);
         Const.initialItemSpace(this);
+        itemSpace = Const.itemSpace;
     }
 
     private HomeAdapter mAdapter;
