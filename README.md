@@ -16,4 +16,4 @@
 <br>
 www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=8
 <br>
-[下载apk](https://github.com/xiaJue/PictureBing/raw/master/%E5%AE%89%E8%A3%85%E5%8C%85.apk)
+[下载apk](https://github.com/xiaJue/PictureBing/raw/master/%E5%AE%89%E8%A3%85%E5%8C%85%20.apk)
