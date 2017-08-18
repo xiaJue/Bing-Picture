@@ -42,10 +42,29 @@ public class HomeActivity extends BaseActivity {
     private CacheUtils mCacheUtils;//缓存类
     private Toolbar mToolbar;
 
+    private static HomeActivity mHomeActivity;
+
+    /**
+     * 获得一个activity的实例
+     * @return
+     */
+    public static HomeActivity getHomeActivity() {
+        return mHomeActivity;
+    }
+
+    /**
+     * 获得recycleView
+     * @return
+     */
+    public RecyclerView getRecyclerView() {
+        return mRecyclerView;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        mHomeActivity=this;
         //始终在右上角显示菜单
         MenuUtils.showRightTopMenu(this);
         initial();//初始化数据

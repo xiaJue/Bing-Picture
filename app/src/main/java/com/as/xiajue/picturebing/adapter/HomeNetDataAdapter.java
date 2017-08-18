@@ -5,13 +5,18 @@ import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
+import android.view.View;
+import android.widget.TextView;
 
 import com.as.xiajue.picturebing.Const;
 import com.as.xiajue.picturebing.NetUtils.HttpUtils;
 import com.as.xiajue.picturebing.NetUtils.JsonUtils;
+import com.as.xiajue.picturebing.R;
+import com.as.xiajue.picturebing.activity.HomeActivity;
 import com.as.xiajue.picturebing.database.HomeItemInfoDao;
-import com.as.xiajue.picturebing.dialog.DialogManager;
 import com.as.xiajue.picturebing.model.HomeItemData;
+import com.as.xiajue.picturebing.utils.SystemUtils;
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
 
 import java.io.IOException;
@@ -66,16 +71,46 @@ public class HomeNetDataAdapter {
                         invalidate();
                         break;
                     case MSG_NET_FAILURE:
-                        //如果从数据库中获取的数据长度大于1则更新界面
-//                        Toast.makeText(mContext, "啊哦...连接网络失败了", Toast.LENGTH_SHORT).show();
                         //显示一个网络连接错误的dialog
-                        DialogManager.showInternetErrorDialog(mContext);
+//                        DialogManager.showInternetErrorDialog(mContext);
+                        //显示一个Snackbar提示网络连接失败
+                        //创建snackbar
+                        Snackbar snackbar = Snackbar.make(HomeActivity.getHomeActivity()
+                                        .getRecyclerView(), mContext
+                                        .getString(R.string.internet_error_dialog_title),
+                                Snackbar.LENGTH_LONG);
+                        //设置snackbar样式
+                        setSnackbarColor(snackbar, mContext.getResources().getColor(R
+                                .color.about_dialog_textColor));
+                        //设置snackbar的action
+                        snackbar.setAction(R.string.to_set,
+                                new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        //打开网络设置
+                                        SystemUtils.openWifiSettings(mContext);
+                                    }
+                                }).show();
                         mIsSqlLoad = true;
                         invalidate();
                         break;
                 }
             }
         };
+    }
+
+    /**
+     * 修改snackbar样式
+     *
+     * @param snackbar
+     * @param messageColor
+     */
+    public static void setSnackbarColor(Snackbar snackbar, int messageColor) {
+        View view = snackbar.getView();//获取Snackbar的view
+        if (view != null) {
+            //获取Snackbar的message控件，修改字体颜色
+            ((TextView) view.findViewById(R.id.snackbar_text)).setTextColor(messageColor);
+        }
     }
 
     /**
