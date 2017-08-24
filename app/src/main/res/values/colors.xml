@@ -2,20 +2,25 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#3C3F41</color>
+
+    <color name="toolbar_colorAccent">#3C3F41</color>
 
     <color name="picColorPrimary">#D3918E</color>
-    <color name="picColorPrimaryDark">#E04343</color>
-    <color name="picColorAccent">#FF4081</color>
+    <color name="picColorPrimaryDark">#3C3F41</color>
+    <color name="picColorAccent">#3C3F41</color>
 
     <color name="picActionBarTextColor">#ffffff</color>
-    <color name="homeItemTextBack">#90E04343</color>
+    <color name="homeItemTextBack">#903C3F41</color>
 
     <color name="homeItemImageBack">#45494A</color>
-    <color name="maxImageActionBarBgColor">#E04343</color>
+    <color name="maxImageActionBarBgColor">#3C3F41</color>
     <color name="maxImageBgColor">#000000</color>
     <color name="about_dialog_textColor">#E04343</color>
-    <color name="about_dialog_back">#90E04343</color>
+    <color name="about_dialog_back">#903C3F41</color>
     <color name="about_dialog_minColor">#99000000</color>
     <color name="transparent">#00000000</color>
+    <color name="lin_bgck">#3C3F41</color>
+    <color name="bout_text_color">#000000</color>
+    <color name="bout_toolbar_text_color">#ffffff</color>
 </resources>

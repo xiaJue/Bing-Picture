@@ -17,7 +17,6 @@ import com.as.xiajue.picturebing.adapter.HomeAdapter;
 import com.as.xiajue.picturebing.adapter.HomeNetDataAdapter;
 import com.as.xiajue.picturebing.adapter.SpaceItemDecoration;
 import com.as.xiajue.picturebing.cache.CacheUtils;
-import com.as.xiajue.picturebing.dialog.DialogManager;
 import com.as.xiajue.picturebing.model.HomeItemData;
 import com.as.xiajue.picturebing.model.MaxPicItemData;
 import com.as.xiajue.picturebing.utils.DensityUtils;
@@ -46,6 +45,7 @@ public class HomeActivity extends BaseActivity {
 
     /**
      * 获得一个activity的实例
+     *
      * @return
      */
     public static HomeActivity getHomeActivity() {
@@ -54,6 +54,7 @@ public class HomeActivity extends BaseActivity {
 
     /**
      * 获得recycleView
+     *
      * @return
      */
     public RecyclerView getRecyclerView() {
@@ -64,7 +65,7 @@ public class HomeActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        mHomeActivity=this;
+        mHomeActivity = this;
         //始终在右上角显示菜单
         MenuUtils.showRightTopMenu(this);
         initial();//初始化数据
@@ -168,17 +169,25 @@ public class HomeActivity extends BaseActivity {
         switch (item.getItemId()) {
             case R.id.menu_home_about:
                 //显示一个dialog
-                DialogManager.showAboutDialog(this);
+//                DialogManager.showAboutDialog(this);
+                Intent intent = new Intent(this, AboutActivity.class);
+                HomeItemData data;
+                if (mDataList.size() > 0 && (data = mDataList.get(0)) != null) {
+                    intent.putExtra("data", (Serializable) MaxPicItemData.getMaxPicItemData
+                            (mCacheUtils, data));
+                }
+                startActivity(intent);
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
+
     /**
      * 始终在右上角显示菜单-有些手机点击菜单键后在手机下方显示菜单
      */
     @Override
     public boolean onKeyUp(int keycode, KeyEvent e) {
-        switch(keycode) {
+        switch (keycode) {
             case KeyEvent.KEYCODE_MENU:
                 mToolbar.showOverflowMenu();
                 return true;

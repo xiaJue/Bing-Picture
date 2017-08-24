@@ -21,6 +21,8 @@
         </activity>
         <!--<activity android:name=".activity.HomeActivity"></activity>-->
         <activity android:name=".activity.MaxPictureActivity"></activity>
+        <activity
+            android:name=".activity.AboutActivity"></activity>
     </application>
 
 </manifest>

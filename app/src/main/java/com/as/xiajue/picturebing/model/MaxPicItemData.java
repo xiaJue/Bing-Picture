@@ -1,6 +1,7 @@
 package com.as.xiajue.picturebing.model;
 
 import android.net.Uri;
+import android.support.annotation.NonNull;
 
 import com.as.xiajue.picturebing.cache.CacheUtils;
 
@@ -60,14 +61,20 @@ public class MaxPicItemData implements Serializable {
         List<MaxPicItemData> list = new ArrayList<>();
         for (HomeItemData data :
                 homeList) {
-            MaxPicItemData maxData = new MaxPicItemData();
-            maxData.setCopyright(data.getCopyright());
-            maxData.setEnddate(data.getEnddate());
-            maxData.setUri(Uri.fromFile(cacheUtils.getCacheFileFromUrl(data.getAbsUrl()))
-                    .toString());
-            maxData.setUrl(data.getAbsUrl());
+            MaxPicItemData maxData = getMaxPicItemData(cacheUtils, data);
             list.add(maxData);
         }
         return list;
+    }
+
+    @NonNull
+    public static MaxPicItemData getMaxPicItemData(CacheUtils cacheUtils, HomeItemData data) {
+        MaxPicItemData maxData = new MaxPicItemData();
+        maxData.setCopyright(data.getCopyright());
+        maxData.setEnddate(data.getEnddate());
+        maxData.setUri(Uri.fromFile(cacheUtils.getCacheFileFromUrl(data.getAbsUrl()))
+                .toString());
+        maxData.setUrl(data.getAbsUrl());
+        return maxData;
     }
 }

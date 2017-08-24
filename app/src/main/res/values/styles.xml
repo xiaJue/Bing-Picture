@@ -1,15 +1,15 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
-
-    <style name="PictureAPPTheme" parent="@android:style/Theme.Holo.NoActionBar"></style>
 
     <style name="ActionBarTextViewStyle">
         <item name="android:textSize">18sp</item>
@@ -37,16 +37,6 @@
         <item name="android:textColor">@color/about_dialog_textColor</item>
     </style>
 
-
-    <style name="about_dialog_style" parent="@android:style/Theme.Dialog">
-        <item name="android:windowFrame">@null</item><!--边框-->
-        <item name="android:windowIsFloating">true</item><!--是否浮现在activity之上-->
-        <item name="android:windowIsTranslucent">false</item><!--半透明-->
-        <item name="android:windowNoTitle">true</item><!--无标题-->
-        <item name="android:windowBackground">@color/transparent</item><!--背景透明-->
-        <item name="android:backgroundDimEnabled">true</item><!--模糊-->
-    </style>
-
     <style name="internet_error_dialog_theme">
         <item name="android:drawableRight">@mipmap/doge</item>
         <item name="android:gravity">center_vertical</item>
@@ -57,7 +47,7 @@
         <!-- 是否覆盖锚点，默认为true，即盖住Toolbar -->
         <item name="overlapAnchor">false</item>
         <!-- 弹出层垂直方向上的偏移，即在竖直方向上距离Toolbar的距离，值为负则会盖住Toolbar -->
-        <item name="android:dropDownVerticalOffset">2dp</item>
+        <item name="android:dropDownVerticalOffset">5dp</item>
         <!-- 弹出层水平方向上的偏移，即距离屏幕左边的距离，负值会导致右边出现空隙 -->
         <item name="android:dropDownHorizontalOffset">0dp</item>
     </style>
