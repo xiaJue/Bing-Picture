@@ -2,8 +2,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+    android:layout_height="wrap_content">
 
     <android.support.design.widget.CollapsingToolbarLayout
         android:layout_width="match_parent"
@@ -58,7 +57,8 @@
             android:layout_height="?android:attr/actionBarSize"
             android:contentInsetEnd="0dp"
             app:contentInsetStart="0dp"
-            app:layout_collapseMode="pin"/>
+            app:layout_collapseMode="pin"
+            app:popupTheme="@style/ToolbarPopupTheme"/>
 
     </android.support.design.widget.CollapsingToolbarLayout>
 </android.support.design.widget.AppBarLayout>

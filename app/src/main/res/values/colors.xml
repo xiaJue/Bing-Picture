@@ -23,4 +23,5 @@
     <color name="lin_bgck">#3C3F41</color>
     <color name="bout_text_color">#000000</color>
     <color name="bout_toolbar_text_color">#ffffff</color>
+    <color name="menuBgColor">#ffffff</color>
 </resources>

@@ -3,7 +3,7 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/menu_max_save"
-        android:icon="@mipmap/download"
+        android:icon="@mipmap/save"
         android:title="@string/save"
         app:showAsAction="always"/>
     <item
