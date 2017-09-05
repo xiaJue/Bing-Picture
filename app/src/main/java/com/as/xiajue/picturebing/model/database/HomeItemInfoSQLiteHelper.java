@@ -1,4 +1,4 @@
-package com.as.xiajue.picturebing.database;
+package com.as.xiajue.picturebing.model.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

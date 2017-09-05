@@ -1,11 +1,11 @@
-package com.as.xiajue.picturebing.adapter;
+package com.as.xiajue.picturebing.model.adapter;
 
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 /**
- * Created by Moing_Admin on 2017/7/31.
+ * Created by xiaJue on 2017/7/31.
  * RecycleView 的条目间距
  */
 

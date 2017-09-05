@@ -33,7 +33,7 @@
             android:textColor="@color/picActionBarTextColor"
             android:textSize="50sp"/>
 
-        <com.as.xiajue.picturebing.view.DateTranBackTextView
+        <com.as.xiajue.picturebing.view.custom.DateTranBackTextView
             android:id="@+id/item_home_tv"
             style="@style/date_textView_style"
             app:backColor="@color/homeItemTextBack"

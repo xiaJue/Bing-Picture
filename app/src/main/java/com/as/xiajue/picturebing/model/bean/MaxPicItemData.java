@@ -1,16 +1,16 @@
-package com.as.xiajue.picturebing.model;
+package com.as.xiajue.picturebing.model.bean;
 
 import android.net.Uri;
 import android.support.annotation.NonNull;
 
-import com.as.xiajue.picturebing.cache.CacheUtils;
+import com.as.xiajue.picturebing.model.cache.CacheUtils;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Moing_Admin on 2017/8/8.
+ * Created by xiaJue on 2017/8/8.
  */
 
 public class MaxPicItemData implements Serializable {

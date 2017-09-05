@@ -1,4 +1,4 @@
-package com.as.xiajue.picturebing.cache;
+package com.as.xiajue.picturebing.model.cache;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;

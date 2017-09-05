@@ -1,4 +1,4 @@
-package com.as.xiajue.picturebing.activity;
+package com.as.xiajue.picturebing.view.activity;
 
 import android.support.v7.app.AppCompatActivity;
 

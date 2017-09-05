@@ -26,6 +26,7 @@ public class Const {
 
     public static final int LOAD_JSON_COUNT = 3;//一次显示的条目个数、最大为8
     public static final int ITEM_LIN_COUNT = 1;//一行显示的条目个数
+    public static final String BASE_URL = "http://www.bing.com/";
     public static final String URL_ADDRESS = "http://www.bing.com/HPImageArchive" +
             ".aspx?format=js&idx=";
     public static final String DOWNLOAD_IMAGE_DIR = Environment.getExternalStorageDirectory() +

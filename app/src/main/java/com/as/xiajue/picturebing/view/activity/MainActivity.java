@@ -1,9 +1,9 @@
-package com.as.xiajue.picturebing;
+package com.as.xiajue.picturebing.view.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import com.as.xiajue.picturebing.activity.BaseActivity;
+import com.as.xiajue.picturebing.R;
 
 public class MainActivity extends BaseActivity {
 

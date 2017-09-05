@@ -1,6 +1,8 @@
-package com.as.xiajue.picturebing.activity;
+package com.as.xiajue.picturebing.view.activity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
@@ -9,12 +11,16 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import com.as.xiajue.picturebing.R;
-import com.as.xiajue.picturebing.model.MaxPicItemData;
+import com.as.xiajue.picturebing.model.bean.MaxPicItemData;
+import com.as.xiajue.picturebing.utils.L;
 import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
+import com.nostra13.universalimageloader.core.ImageLoader;
+
+import java.io.File;
 
 /**
- * Created by Moing_Admin on 2017/8/23.
+ * Created by xiaJue on 2017/8/23.
  */
 
 public class AboutActivity extends BaseActivity {
@@ -33,12 +39,23 @@ public class AboutActivity extends BaseActivity {
     private void setImage() {
         Intent intent = getIntent();
         MaxPicItemData data = (MaxPicItemData) intent.getSerializableExtra("data");
-        if (data == null) {
-            mImageView.setImage(ImageSource.resource(R.mipmap.toolbar_bg));
-            return;
+        //set image
+        Bitmap bitmap = ImageLoader.getInstance().getMemoryCache().get(data.getUrl());
+        if (bitmap != null) {
+            mImageView.setImage(ImageSource.bitmap(bitmap));
+            L.e("memory");
+        }else{
+            //disk cache image
+            File file = ImageLoader.getInstance().getDiskCache().get(data.getUrl());
+            if (file.exists()) {
+                L.e("disk");
+                mImageView.setImage(ImageSource.uri(Uri.fromFile(file)));
+            }else{
+                mImageView.setImage(ImageSource.resource(R.mipmap.toolbar_bg));
+            }
         }
-        String uri = data.getUri();
-        mImageView.setImage(ImageSource.uri(uri));
+//        String uri = data.getUri();
+//        mImageView.setImage(ImageSource.uri(uri));
     }
 
     private void bindView() {

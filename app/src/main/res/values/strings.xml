@@ -24,13 +24,16 @@
     </string>
     <string name="developers">开发者</string>
     <string name="open_source_list">
-        com.lcodecorex:tkrefreshlayout:1.0.7\n
-        com.android.support:cardview-v7:22.2.0\n
-        com.android.support:recyclerview-v7:22.2.0\n
-        com.squareup.okhttp3:okhttp:3.8.1\n
-        com.jakewharton:disklrucache:2.0.2\n
-        com.davemorrissey.labs:subsampling-scale-image-view:3.6.0\n
-        com.android.support:design:25.2.0
+    com.lcodecorex:tkrefreshlayout:1.0.7\n
+    com.android.support:cardview-v7:22.2.0\n
+    com.android.support:recyclerview-v7:22.2.0\n
+    com.squareup.okhttp3:okhttp:3.8.1\n
+    com.davemorrissey.labs:subsampling-scale-image-view:3.6.0\n
+    com.android.support:design:25.2.0\n
+    com.squareup.retrofit2:retrofit:2.0.0-beta4\n
+    com.squareup.retrofit2:converter-gson:2.0.0-beta4\n
+    com.squareup.retrofit2:converter-scalars:2.0.0-beta4\n
+    universal-image-loader-1.9.5.jar\n
     </string>
     <string name="use_open_source">使用的开源库</string>
     <string name="w_code_ui"><![CDATA[设计&开发&美工]]></string>

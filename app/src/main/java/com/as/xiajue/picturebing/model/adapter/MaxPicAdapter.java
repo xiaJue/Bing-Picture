@@ -1,19 +1,24 @@
-package com.as.xiajue.picturebing.adapter;
+package com.as.xiajue.picturebing.model.adapter;
 
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.as.xiajue.picturebing.R;
-import com.as.xiajue.picturebing.model.MaxPicItemData;
+import com.as.xiajue.picturebing.model.bean.MaxPicItemData;
+import com.as.xiajue.picturebing.utils.L;
 import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
+import java.io.File;
 import java.util.List;
 
 /**
- * Created by Moing_Admin on 2017/8/8.
+ * Created by xiaJue on 2017/8/8.
  */
 
 public class MaxPicAdapter extends PagerAdapter {
@@ -44,10 +49,22 @@ public class MaxPicAdapter extends PagerAdapter {
         container.addView(view);
         //设置图片
         MaxPicItemData data = mDataList.get(position);
-        SubsamplingScaleImageView imageView = (SubsamplingScaleImageView) view.findViewById
+        final SubsamplingScaleImageView imageView = (SubsamplingScaleImageView) view.findViewById
                 (R.id.item_maxP_imageView);
-        //主要图片
-        imageView.setImage(ImageSource.uri(data.getUri()));
+        //memory cache image
+        L.e("load image");
+        Bitmap bitmap = ImageLoader.getInstance().getMemoryCache().get(data.getUrl());
+        if (bitmap != null) {
+            imageView.setImage(ImageSource.bitmap(bitmap));
+            L.e("memory");
+        }else{
+            //disk cache image
+            File file = ImageLoader.getInstance().getDiskCache().get(data.getUrl());
+            if (file.exists()) {
+                L.e("disk");
+                imageView.setImage(ImageSource.uri(Uri.fromFile(file)));
+            }
+        }
         if (mOnClickListener != null) {
             imageView.setOnClickListener(mOnClickListener);
         }
@@ -64,18 +81,6 @@ public class MaxPicAdapter extends PagerAdapter {
     public void setOnClickListener(View.OnClickListener onClickListener){
         this.mOnClickListener=onClickListener;
     }
-//    public void setOnItemClickListener(OnItemClickListener itemClickListener) {
-//        this.mItemClickListener = itemClickListener;
-//    }
-//
-//    private OnItemClickListener mItemClickListener;
-//
-//    /**
-//     * 设置条目点击事件
-//     */
-//    public static interface OnItemClickListener {
-//        void onItemClick(View view, int position);
-//    }
 
     public static abstract class MaxOnPagerChangeListener implements ViewPager
             .OnPageChangeListener {

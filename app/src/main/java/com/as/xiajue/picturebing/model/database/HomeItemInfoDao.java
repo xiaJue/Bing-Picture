@@ -1,11 +1,11 @@
-package com.as.xiajue.picturebing.database;
+package com.as.xiajue.picturebing.model.database;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.as.xiajue.picturebing.model.HomeItemData;
+import com.as.xiajue.picturebing.model.bean.HomeItemData;
 
 import java.util.ArrayList;
 import java.util.List;

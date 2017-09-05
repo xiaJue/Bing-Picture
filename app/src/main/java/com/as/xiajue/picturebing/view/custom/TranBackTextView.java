@@ -1,4 +1,4 @@
-package com.as.xiajue.picturebing.view;
+package com.as.xiajue.picturebing.view.custom;
 
 import android.content.Context;
 import android.content.res.TypedArray;
