@@ -16,9 +16,9 @@ import com.as.xiajue.picturebing.Const;
 import com.as.xiajue.picturebing.R;
 import com.as.xiajue.picturebing.model.bean.HomeItemData;
 import com.as.xiajue.picturebing.model.bean.MaxPicItemData;
-import com.as.xiajue.picturebing.model.cache.CacheUtils;
 import com.as.xiajue.picturebing.utils.FileUtils;
 import com.as.xiajue.picturebing.view.activity.viewInterface.IMaxView;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.io.File;
 
@@ -30,12 +30,9 @@ public class MaxPresenter {
     private Context mContext;
     private IMaxView mIMaxView;
 
-    private CacheUtils mCacheUtils;//缓存类
-
     public MaxPresenter(IMaxView iMaxView) {
         this.mContext = (Context) iMaxView;
         this.mIMaxView = iMaxView;
-        mCacheUtils = new CacheUtils(mContext);
     }
 
     /**
@@ -176,7 +173,7 @@ public class MaxPresenter {
         //获取临时文件的目录
         String path = Const.DOWNLOAD_IMAGE_DIR + "temp" + File.separator;
         //将缓存文件复制到临时文件夹
-        File file = mCacheUtils.getCacheFileFromUrl(url);
+        File file = ImageLoader.getInstance().getDiskCache().get(url);
         FileUtils.copyFile(file, path, new File[1]);
         //拿到新文件的路径
         shareTempFile = new File(path + FileUtils.changeSuff(file.getName(), ".jpg"));
@@ -193,7 +190,7 @@ public class MaxPresenter {
      */
     private void saveImage(String url) {
         File[] outFile = new File[1];
-        int resultCode = FileUtils.copyFile(mCacheUtils.getCacheFileFromUrl(url),
+        int resultCode = FileUtils.copyFile(ImageLoader.getInstance().getDiskCache().get(url),
                 Const.DOWNLOAD_IMAGE_DIR, outFile);
         if (resultCode == 0) {
             Toast.makeText(mContext, R.string.save_success, Toast.LENGTH_SHORT).show();

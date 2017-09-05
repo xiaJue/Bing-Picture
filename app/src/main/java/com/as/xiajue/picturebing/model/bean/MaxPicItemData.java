@@ -1,9 +1,6 @@
 package com.as.xiajue.picturebing.model.bean;
 
-import android.net.Uri;
 import android.support.annotation.NonNull;
-
-import com.as.xiajue.picturebing.model.cache.CacheUtils;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -14,7 +11,6 @@ import java.util.List;
  */
 
 public class MaxPicItemData implements Serializable {
-    private String uri;
     private String copyright;
     private String enddate;
     private String url;
@@ -32,20 +28,12 @@ public class MaxPicItemData implements Serializable {
         return url;
     }
 
-    public String getUri() {
-        return uri;
-    }
-
     public String getCopyright() {
         return copyright;
     }
 
     public String getEnddate() {
         return enddate;
-    }
-
-    public void setUri(String uri) {
-        this.uri = uri;
     }
 
     public void setCopyright(String copyright) {
@@ -56,25 +44,22 @@ public class MaxPicItemData implements Serializable {
         this.enddate = enddate;
     }
 
-    public static List<MaxPicItemData> Home2MaxPic(List<HomeItemData> homeList, CacheUtils
-            cacheUtils) {
-        List<MaxPicItemData> list = new ArrayList<>();
-        for (HomeItemData data :
-                homeList) {
-            MaxPicItemData maxData = getMaxPicItemData(cacheUtils, data);
-            list.add(maxData);
-        }
-        return list;
-    }
-
     @NonNull
-    public static MaxPicItemData getMaxPicItemData(CacheUtils cacheUtils, HomeItemData data) {
+    public static MaxPicItemData getMaxPicItemData( HomeItemData data) {
         MaxPicItemData maxData = new MaxPicItemData();
         maxData.setCopyright(data.getCopyright());
         maxData.setEnddate(data.getEnddate());
-        maxData.setUri(Uri.fromFile(cacheUtils.getCacheFileFromUrl(data.getAbsUrl()))
-                .toString());
         maxData.setUrl(data.getAbsUrl());
         return maxData;
+    }
+
+    public static List Home2MaxPic(List<HomeItemData> dataList) {
+        List list = new ArrayList();
+        for (HomeItemData data :
+                dataList) {
+            MaxPicItemData maxData = getMaxPicItemData(data);
+            list.add(maxData);
+        }
+        return list;
     }
 }

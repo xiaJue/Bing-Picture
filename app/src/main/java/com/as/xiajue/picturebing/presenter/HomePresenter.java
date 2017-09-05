@@ -10,7 +10,6 @@ import com.as.xiajue.picturebing.model.adapter.OnRefreshFinish;
 import com.as.xiajue.picturebing.model.adapter.HomeDataAdapter;
 import com.as.xiajue.picturebing.model.bean.HomeItemData;
 import com.as.xiajue.picturebing.model.bean.MaxPicItemData;
-import com.as.xiajue.picturebing.model.cache.CacheUtils;
 import com.as.xiajue.picturebing.utils.L;
 import com.as.xiajue.picturebing.view.activity.AboutActivity;
 import com.as.xiajue.picturebing.view.activity.MaxPictureActivity;
@@ -27,7 +26,6 @@ import java.util.List;
 public class HomePresenter implements OnRefreshFinish {
     private Context mContext;
 
-    private CacheUtils mCacheUtils;//缓存类
     private HomeDataAdapter mHomeDataAdapter;
     private IHomeView mIHomeView;
     public final static int UP_REFRESH=223;
@@ -36,7 +34,6 @@ public class HomePresenter implements OnRefreshFinish {
     public HomePresenter(IHomeView iHomeView) {
         this.mIHomeView=iHomeView;
         this.mContext= (Context) iHomeView;
-        mCacheUtils = new CacheUtils(mContext);
         mHomeDataAdapter = new HomeDataAdapter(mContext);
         mHomeDataAdapter.setList(mIHomeView.getDataList());
     }
@@ -51,8 +48,7 @@ public class HomePresenter implements OnRefreshFinish {
                 Intent intent = new Intent(mContext, AboutActivity.class);
                 HomeItemData data;
                 if (mIHomeView.getDataList().size() > 0 && (data = mIHomeView.getDataList().get(0)) != null) {
-                    intent.putExtra("data", MaxPicItemData.getMaxPicItemData
-                            (mCacheUtils, data));
+                    intent.putExtra("data", MaxPicItemData.getMaxPicItemData(data));
                 }
                 mContext.startActivity(intent);
                 break;
@@ -64,7 +60,7 @@ public class HomePresenter implements OnRefreshFinish {
      */
     public void onItemClick(View item, int position) {
         Intent intent = new Intent(mContext, MaxPictureActivity.class);
-        List maxList = MaxPicItemData.Home2MaxPic(mIHomeView.getDataList(), mCacheUtils);
+        List maxList = MaxPicItemData.Home2MaxPic(mIHomeView.getDataList());
         intent.putExtra("_position", position + 1);
         intent.putExtra("_maxList", (Serializable) maxList);
         mContext.startActivity(intent);
