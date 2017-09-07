@@ -6,9 +6,9 @@
 <br>www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=8
 版本Version1.1
 更新:优化项目结构和代码。网络:Retrofit2 加载图片/缓存图片:ImageLoader  增加加载图片进度条显示 
-![Home]{https://github.com/xiaJue/PictureBing/blob/master/Screenshot/home.gif}
-![Max]{https://github.com/xiaJue/PictureBing/blob/master/Screenshot/max.gif}
-![About]{https://github.com/xiaJue/PictureBing/blob/master/Screenshot/about.gif}
+![Home](https://github.com/xiaJue/PictureBing/blob/master/Screenshot/home.gif)
+![Max](https://github.com/xiaJue/PictureBing/blob/master/Screenshot/max.gif)
+![About](https://github.com/xiaJue/PictureBing/blob/master/Screenshot/about.gif)
 更改的使用框架:
 <br>
 [TwinklingRefreshLayout](https://github.com/lcodecorex/TwinklingRefreshLayout)
