@@ -4,6 +4,7 @@
 <br>图片数据来源：https://bing.ioliu.cn/
 <br>数据的获取:
 <br>www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=8
+<br>---<br>
 版本Version1.1<br><br>
 ![Home](https://github.com/xiaJue/PictureBing/blob/master/Screenshot/home.gif)<br>
 ![Max](https://github.com/xiaJue/PictureBing/blob/master/Screenshot/max.gif)<br>
@@ -12,18 +13,20 @@
 <br>
 更改的使用框架:
 <br>
-.[TwinklingRefreshLayout](https://github.com/lcodecorex/TwinklingRefreshLayout)
-.[subsampling-scale-image-view](https://github.com/davemorrissey/subsampling-scale-image-view)
-.[okhttp](https://github.com/square/okhttp)
-.[DiskLruCache](https://github.com/JakeWharton/DiskLruCache)
-.[Retrofit](https://github.com/square/retrofit)
-.[Gson](https://github.com/google/gson)
-.[CircleProgressBar](https://github.com/dinuscxj/CircleProgressBar)
+[TwinklingRefreshLayout](https://github.com/lcodecorex/TwinklingRefreshLayout)<br>
+[subsampling-scale-image-view](https://github.com/davemorrissey/subsampling-scale-image-view)<br>
+[okhttp](https://github.com/square/okhttp)<br>
+[DiskLruCache](https://github.com/JakeWharton/DiskLruCache)<br>
+[Retrofit](https://github.com/square/retrofit)<br>
+[Gson](https://github.com/google/gson)<br>
+[CircleProgressBar](https://github.com/dinuscxj/CircleProgressBar)
 <br>
 [下载apk](https://github.com/xiaJue/PictureBing/raw/master/%E5%AE%89%E8%A3%85%E5%8C%85.apk)
 
+<br>---<br>
+
 版本Version1.0
-<br>
+<br><br>
 项目开源框架:
 <br>
 1. 下拉刷新[TwinklingRefreshLayout](https://github.com/lcodecorex/TwinklingRefreshLayout)
@@ -33,7 +36,3 @@
 3. 访问网络[okhttp](https://github.com/square/okhttp)
 
 4. 本地缓存图片[DiskLruCache](https://github.com/JakeWharton/DiskLruCache)
-
-更多在APP中列出
-<br>
-[下载apk](https://github.com/xiaJue/PictureBing/raw/master/%E5%AE%89%E8%A3%85%E5%8C%85%20.apk)
