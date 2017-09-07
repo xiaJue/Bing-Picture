@@ -8,7 +8,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 25
         versionCode 1
-        versionName "1.0"
+        versionName "1.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -39,4 +39,6 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-scalars:2.0.0-beta4'
     //ConverterFactory的String依赖包
     compile files('libs/universal-image-loader-1.9.5.jar')
+    //进度条
+    compile 'com.dinuscxj:circleprogressbar:1.1.1'
 }

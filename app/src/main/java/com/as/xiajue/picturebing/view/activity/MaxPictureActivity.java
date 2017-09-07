@@ -12,10 +12,10 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.as.xiajue.picturebing.R;
-import com.as.xiajue.picturebing.model.adapter.MaxPicAdapter;
+import com.as.xiajue.picturebing.view.activity.adapter.MaxPicAdapter;
 import com.as.xiajue.picturebing.model.bean.HomeItemData;
 import com.as.xiajue.picturebing.model.bean.MaxPicItemData;
-import com.as.xiajue.picturebing.presenter.presenterInterfece.MaxPresenter;
+import com.as.xiajue.picturebing.presenter.MaxPresenter;
 import com.as.xiajue.picturebing.view.custom.DateTranBackTextView;
 import com.as.xiajue.picturebing.view.activity.viewInterface.IMaxView;
 
@@ -81,7 +81,7 @@ public class MaxPictureActivity extends BaseActivity implements View.OnClickList
             View view = mInflater.inflate(R.layout.item_maxpic_viewpager, null);
             mViewList.add(view);
         }
-        mPicAdapter = new MaxPicAdapter(mDataList, mViewList);
+        mPicAdapter = new MaxPicAdapter(this,mDataList, mViewList);
         mViewPager = getView(R.id.maxP_viewPager);
         mViewPager.setAdapter(mPicAdapter);
         mViewPager.setCurrentItem(mPosition - 1);

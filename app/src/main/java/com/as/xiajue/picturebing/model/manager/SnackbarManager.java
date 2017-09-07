@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.as.xiajue.picturebing.R;
-import com.as.xiajue.picturebing.utils.SystemUtils;
+import com.as.xiajue.picturebing.model.utils.SystemUtils;
 
 /**
  * xiaJue 2017/9/5创建

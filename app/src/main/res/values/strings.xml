@@ -34,8 +34,9 @@
     com.squareup.retrofit2:converter-gson:2.0.0-beta4\n
     com.squareup.retrofit2:converter-scalars:2.0.0-beta4\n
     universal-image-loader-1.9.5.jar\n
+    com.dinuscxj:circleprogressbar:1.1.1\n
     </string>
     <string name="use_open_source">使用的开源库</string>
     <string name="w_code_ui"><![CDATA[设计&开发&美工]]></string>
-    <string name="version">Version-1.0</string>
+    <string name="version">Version</string>
 </resources>

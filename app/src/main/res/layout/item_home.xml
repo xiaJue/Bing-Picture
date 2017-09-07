@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_view"
     android:layout_width="match_parent"
@@ -14,24 +13,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <ImageView
             android:id="@+id/item_home_iv"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:scaleType="fitCenter"
-            android:src="@drawable/item_image_drawable"/>
-
-        <TextView
-            android:id="@+id/item_home_countTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="230dp"
             android:layout_centerInParent="true"
-            android:text="1"
-            android:textColor="@color/picActionBarTextColor"
-            android:textSize="50sp"/>
+            android:scaleType="fitCenter"
+            android:src="@drawable/item_image_drawable" />
+
+        <com.dinuscxj.progressbar.CircleProgressBar
+            android:id="@+id/item_home_progress"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            app:progress_text_color="@color/picActionBarTextColor" />
 
         <com.as.xiajue.picturebing.view.custom.DateTranBackTextView
             android:id="@+id/item_home_tv"
@@ -39,7 +35,7 @@
             app:backColor="@color/homeItemTextBack"
             app:dateText="公元某某年"
             app:dateTextLeft="true"
-            app:dateTextSize="10sp"/>
+            app:dateTextSize="10sp" />
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>

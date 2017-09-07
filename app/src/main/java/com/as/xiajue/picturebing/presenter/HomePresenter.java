@@ -6,11 +6,11 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.as.xiajue.picturebing.R;
-import com.as.xiajue.picturebing.model.adapter.OnRefreshFinish;
-import com.as.xiajue.picturebing.model.adapter.HomeDataAdapter;
 import com.as.xiajue.picturebing.model.bean.HomeItemData;
 import com.as.xiajue.picturebing.model.bean.MaxPicItemData;
-import com.as.xiajue.picturebing.utils.L;
+import com.as.xiajue.picturebing.model.manager.HomeDataManager;
+import com.as.xiajue.picturebing.model.utils.L;
+import com.as.xiajue.picturebing.presenter.presenterInterfece.OnRefreshFinish;
 import com.as.xiajue.picturebing.view.activity.AboutActivity;
 import com.as.xiajue.picturebing.view.activity.MaxPictureActivity;
 import com.as.xiajue.picturebing.view.activity.viewInterface.IHomeView;
@@ -26,7 +26,7 @@ import java.util.List;
 public class HomePresenter implements OnRefreshFinish {
     private Context mContext;
 
-    private HomeDataAdapter mHomeDataAdapter;
+    private HomeDataManager mHomeDataManager;
     private IHomeView mIHomeView;
     public final static int UP_REFRESH=223;
     public final static int DOWN_LOAD_MORE=224;
@@ -34,8 +34,8 @@ public class HomePresenter implements OnRefreshFinish {
     public HomePresenter(IHomeView iHomeView) {
         this.mIHomeView=iHomeView;
         this.mContext= (Context) iHomeView;
-        mHomeDataAdapter = new HomeDataAdapter(mContext);
-        mHomeDataAdapter.setList(mIHomeView.getDataList());
+        mHomeDataManager = new HomeDataManager(mContext);
+        mHomeDataManager.setList(mIHomeView.getDataList());
     }
 
     /**
@@ -72,10 +72,10 @@ public class HomePresenter implements OnRefreshFinish {
     public void onLayoutRefresh(int orientation) {
         if (orientation == UP_REFRESH) {
             L.e("refresh");
-            mHomeDataAdapter.load(0,this);
+            mHomeDataManager.load(0,this);
         } else if (orientation == DOWN_LOAD_MORE) {
             L.e("more");
-            mHomeDataAdapter.load(mHomeDataAdapter.getLoadingIdx(),this);
+            mHomeDataManager.load(mHomeDataManager.getLoadingIdx(),this);
         }
     }
 
@@ -109,7 +109,7 @@ public class HomePresenter implements OnRefreshFinish {
      * }
      */
     @Override
-    public void fialure(List<HomeItemData> list) {
+    public void failure(List<HomeItemData> list) {
         putToList(list);
         sortList(mIHomeView.getDataList());
         mIHomeView.showInternetFailure();

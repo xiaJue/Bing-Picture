@@ -16,17 +16,4 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected <T> T getView(int id) {
         return (T) findViewById(id);
     }
-
-//    @Override
-//    protected void onCreate(@Nullable Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        PicActionBar actionBar = getToolbar();
-//        if (actionBar == null) {
-//            return;
-//        }
-//        int color = actionBar.getBgColor();
-//        ScreenUtils.setStatusColor(this, getWindow(),color);//设置状态栏颜色
-//        setSupportActionBar(actionBar);
-//    }
-//    protected abstract PicActionBar getToolbar();
 }

@@ -3,7 +3,7 @@ package com.as.xiajue.picturebing;
 import android.content.Context;
 import android.os.Environment;
 
-import com.as.xiajue.picturebing.utils.DensityUtils;
+import com.as.xiajue.picturebing.model.utils.DensityUtils;
 
 import java.io.File;
 
@@ -15,6 +15,8 @@ import java.io.File;
 public class Const {
     public static int itemSpace;//条目间的间距
     public static Context context;
+    public static int ITEM_IMAGE_ROUND_SIZE =10;//图片圆角的角度
+    public static int ITEM_IMAGE_ANIMATE_DURATION_MILLIS=800;//图片渐变显示的时长
 
     /**
      * 初始化条目边距

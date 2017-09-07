@@ -4,12 +4,6 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:src="@mipmap/load_image_wait"/>
-
     <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
         android:id="@+id/item_maxP_imageView"
         android:layout_width="match_parent"

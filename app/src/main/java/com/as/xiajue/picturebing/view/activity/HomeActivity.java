@@ -11,13 +11,13 @@ import android.view.View;
 
 import com.as.xiajue.picturebing.Const;
 import com.as.xiajue.picturebing.R;
-import com.as.xiajue.picturebing.model.adapter.HomeRecyclerAdapter;
-import com.as.xiajue.picturebing.model.adapter.SpaceItemDecoration;
+import com.as.xiajue.picturebing.view.activity.adapter.HomeRecyclerAdapter;
+import com.as.xiajue.picturebing.view.activity.adapter.SpaceItemDecoration;
 import com.as.xiajue.picturebing.model.bean.HomeItemData;
 import com.as.xiajue.picturebing.model.manager.SnackbarManager;
 import com.as.xiajue.picturebing.presenter.HomePresenter;
-import com.as.xiajue.picturebing.utils.DensityUtils;
-import com.as.xiajue.picturebing.utils.MenuUtils;
+import com.as.xiajue.picturebing.model.utils.DensityUtils;
+import com.as.xiajue.picturebing.model.utils.MenuUtils;
 import com.as.xiajue.picturebing.view.activity.viewInterface.IHomeView;
 import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter;
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;

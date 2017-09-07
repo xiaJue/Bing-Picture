@@ -8,7 +8,7 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 
 import com.as.xiajue.picturebing.R;
-import com.as.xiajue.picturebing.utils.DensityUtils;
+import com.as.xiajue.picturebing.model.utils.DensityUtils;
 
 /**
  * Created by Moing_Admin on 2017/7/30.
