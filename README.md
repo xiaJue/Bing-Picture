@@ -4,8 +4,26 @@
 <br>图片数据来源：https://bing.ioliu.cn/
 <br>数据的获取:
 <br>www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=8
+版本Version1.1
+更新:优化项目结构和代码。网络:Retrofit2 加载图片/缓存图片:ImageLoader  增加加载图片进度条显示 
+![Home]{https://github.com/xiaJue/PictureBing/blob/master/Screenshot/home.gif}
+![Max]{https://github.com/xiaJue/PictureBing/blob/master/Screenshot/max.gif}
+![About]{https://github.com/xiaJue/PictureBing/blob/master/Screenshot/about.gif}
+更改的使用框架:
 <br>
-使用的除谷歌提供外的开源框架:
+[TwinklingRefreshLayout](https://github.com/lcodecorex/TwinklingRefreshLayout)
+[subsampling-scale-image-view](https://github.com/davemorrissey/subsampling-scale-image-view)
+[okhttp](https://github.com/square/okhttp)
+[DiskLruCache](https://github.com/JakeWharton/DiskLruCache)
+[Retrofit](https://github.com/square/retrofit)
+[Gson](https://github.com/google/gson)
+[CircleProgressBar](https://github.com/dinuscxj/CircleProgressBar)
+<br>
+[下载apk](https://github.com/xiaJue/PictureBing/raw/master/%E5%AE%89%E8%A3%85%E5%8C%85.apk)
+
+版本Version1.0
+<br>
+项目开源框架:
 <br>
 1. 下拉刷新[TwinklingRefreshLayout](https://github.com/lcodecorex/TwinklingRefreshLayout)
 
