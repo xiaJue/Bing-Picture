@@ -4,7 +4,7 @@
 <br>图片数据来源：https://bing.ioliu.cn/
 <br>数据的获取:
 <br>www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=8
-版本Version1.1
+版本Version1.1<br><br>
 ![Home](https://github.com/xiaJue/PictureBing/blob/master/Screenshot/home.gif)<br>
 ![Max](https://github.com/xiaJue/PictureBing/blob/master/Screenshot/max.gif)<br>
 ![About](https://github.com/xiaJue/PictureBing/blob/master/Screenshot/about.gif)<br>
