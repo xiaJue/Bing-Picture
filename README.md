@@ -6,7 +6,7 @@
 <br>www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=8
 *****
 版本Version1.1<br><br>
-![Home](https://github.com/xiaJue/PictureBing/blob/master/Screenshot/home.gif)<br>
+![Home](https://github.com/xiaJue/PictureBing/blob/master/Screenshot/home.gif)
 ![Max](https://github.com/xiaJue/PictureBing/blob/master/Screenshot/max.gif)<br>
 ![About](https://github.com/xiaJue/PictureBing/blob/master/Screenshot/about.gif)<br>
 更新:优化项目结构和代码。网络:Retrofit2 加载图片/缓存图片:ImageLoader  增加加载图片进度条显示 
@@ -29,10 +29,10 @@
 <br><br>
 项目开源框架:
 <br>
-1. 下拉刷新[TwinklingRefreshLayout](https://github.com/lcodecorex/TwinklingRefreshLayout)
+[TwinklingRefreshLayout](https://github.com/lcodecorex/TwinklingRefreshLayout)
 
-2. 显示超大图片[subsampling-scale-image-view](https://github.com/davemorrissey/subsampling-scale-image-view)
+[subsampling-scale-image-view](https://github.com/davemorrissey/subsampling-scale-image-view)
 
-3. 访问网络[okhttp](https://github.com/square/okhttp)
+[okhttp](https://github.com/square/okhttp)
 
-4. 本地缓存图片[DiskLruCache](https://github.com/JakeWharton/DiskLruCache)
+[DiskLruCache](https://github.com/JakeWharton/DiskLruCache)
