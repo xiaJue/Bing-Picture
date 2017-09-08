@@ -1,20 +1,15 @@
-package com.as.xiajue.picturebing.view.activity.adapter;
+package com.as.xiajue.picturebing.model.adapter;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.as.xiajue.picturebing.Const;
 import com.as.xiajue.picturebing.R;
 import com.as.xiajue.picturebing.model.bean.MaxPicItemData;
-import com.davemorrissey.labs.subscaleview.ImageSource;
+import com.as.xiajue.picturebing.model.manager.ImageLoaderManager;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
-import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 
 import java.util.List;
 
@@ -54,15 +49,8 @@ public class MaxPicAdapter extends PagerAdapter {
         final MaxPicItemData data = mDataList.get(position);
         final SubsamplingScaleImageView imageView = (SubsamplingScaleImageView) view.findViewById
                 (R.id.item_maxP_imageView);
-            ImageLoader.getInstance().loadImage(data.getUrl(), new SimpleImageLoadingListener() {
-                @Override
-                public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
-                    imageView.setImage(ImageSource.bitmap(loadedImage));
-                    if (loadedImage != null) {
-                        FadeInBitmapDisplayer.animate(imageView, Const.ITEM_IMAGE_ANIMATE_DURATION_MILLIS);
-                    }
-                }
-            });
+        //加载图片
+        ImageLoaderManager.getInstance(mContext).loadImage(data.getUrl(),imageView);
         if (mOnClickListener != null) {
             imageView.setOnClickListener(mOnClickListener);
         }

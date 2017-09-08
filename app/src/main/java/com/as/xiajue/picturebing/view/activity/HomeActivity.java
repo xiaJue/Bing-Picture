@@ -11,8 +11,9 @@ import android.view.View;
 
 import com.as.xiajue.picturebing.Const;
 import com.as.xiajue.picturebing.R;
-import com.as.xiajue.picturebing.view.activity.adapter.HomeRecyclerAdapter;
-import com.as.xiajue.picturebing.view.activity.adapter.SpaceItemDecoration;
+import com.as.xiajue.picturebing.model.utils.L;
+import com.as.xiajue.picturebing.model.adapter.HomeRecyclerAdapter;
+import com.as.xiajue.picturebing.model.adapter.SpaceItemDecoration;
 import com.as.xiajue.picturebing.model.bean.HomeItemData;
 import com.as.xiajue.picturebing.model.manager.SnackbarManager;
 import com.as.xiajue.picturebing.presenter.HomePresenter;
@@ -42,6 +43,7 @@ public class HomeActivity extends BaseActivity implements IHomeView{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        L.e("log ok...");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         //始终在右上角显示菜单
@@ -96,6 +98,12 @@ public class HomeActivity extends BaseActivity implements IHomeView{
                 mPresenter.onItemClick(item,position);
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mRefreshLayout.startRefresh();
     }
 
     /**

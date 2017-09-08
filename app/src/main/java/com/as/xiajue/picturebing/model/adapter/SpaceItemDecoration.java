@@ -1,4 +1,4 @@
-package com.as.xiajue.picturebing.view.activity.adapter;
+package com.as.xiajue.picturebing.model.adapter;
 
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;

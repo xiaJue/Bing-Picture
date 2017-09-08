@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.as.xiajue.picturebing.R;
-import com.as.xiajue.picturebing.view.activity.adapter.MaxPicAdapter;
+import com.as.xiajue.picturebing.model.adapter.MaxPicAdapter;
 import com.as.xiajue.picturebing.model.bean.HomeItemData;
 import com.as.xiajue.picturebing.model.bean.MaxPicItemData;
 import com.as.xiajue.picturebing.presenter.MaxPresenter;

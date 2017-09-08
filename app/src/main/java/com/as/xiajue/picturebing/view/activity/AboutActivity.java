@@ -1,8 +1,6 @@
 package com.as.xiajue.picturebing.view.activity;
 
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,10 +13,10 @@ import android.widget.TextView;
 
 import com.as.xiajue.picturebing.R;
 import com.as.xiajue.picturebing.model.bean.MaxPicItemData;
-import com.as.xiajue.picturebing.model.utils.L;
+import com.as.xiajue.picturebing.presenter.AboutPresenter;
+import com.as.xiajue.picturebing.view.activity.viewInterface.IAboutView;
 import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
-import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.io.File;
 
@@ -26,42 +24,30 @@ import java.io.File;
  * Created by xiaJue on 2017/8/23.
  */
 
-public class AboutActivity extends BaseActivity {
+public class AboutActivity extends BaseActivity implements IAboutView {
     private Toolbar mToolbar;
     private SubsamplingScaleImageView mImageView;
     private TextView mVersion;
+    private AboutPresenter mPresenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
+        mPresenter = new AboutPresenter(this);
         bindView();
         setData();
-
     }
 
     private void setData() {
         Intent intent = getIntent();
         MaxPicItemData data = (MaxPicItemData) intent.getSerializableExtra("data");
-        //set image
-        if(ImageLoader.getInstance()!=null&&data!=null) {
-            Bitmap bitmap = ImageLoader.getInstance().getMemoryCache().get(data.getUrl());
-            if (bitmap != null) {
-                mImageView.setImage(ImageSource.bitmap(bitmap));
-            } else {
-                //disk cache image
-                File file = ImageLoader.getInstance().getDiskCache().get(data.getUrl());
-                if (file.exists()) {
-                    mImageView.setImage(ImageSource.uri(Uri.fromFile(file)));
-                } else {
-                    mImageView.setImage(ImageSource.resource(R.mipmap.toolbar_bg));
-                }
-            }
+        if (data != null) {
+            mPresenter.onSetImage(data.getUrl());
         }else{
-            mImageView.setImage(ImageSource.resource(R.mipmap.toolbar_bg));
+            mPresenter.onSetImage("");
         }
-        //设置版本号
-        mVersion.setText(getString(R.string.version) + getVersionName());
+        mPresenter.onSetVersion();
     }
 
     private void bindView() {
@@ -80,34 +66,32 @@ public class AboutActivity extends BaseActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
     }
 
-    /**
-     * 获取版本号
-     *
-     * @return 当前应用的版本号
-     */
-    private String getVersionName()
-    {
-        // 获取packagemanager的实例
-        PackageManager packageManager = getPackageManager();
-        // getPackageName()是你当前类的包名，0代表是获取版本信息
-        PackageInfo packInfo = null;
-        try {
-            packInfo = packageManager.getPackageInfo(getPackageName(),0);
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-        String version = packInfo.versionName;
-        L.e(version+"----------");
-        return version;
-    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                break;
-        }
+        mPresenter.onMenuItemSelect(item);
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void setVersion(String version) {
+        //设置版本号
+        mVersion.setText(version);
+    }
+
+    @Override
+    public <T> void setImage(T tt) {
+        //设置图片
+        if (tt != null) {
+            if (tt instanceof Bitmap) {
+                mImageView.setImage(ImageSource.bitmap((Bitmap) tt));
+            } else if (tt instanceof File) {
+                mImageView.setImage(ImageSource.uri(Uri.fromFile((File) tt)));
+            }
+        }else{
+            mImageView.setImage(ImageSource.resource(R.mipmap.toolbar_bg));
+        }
+    }
+
 }
