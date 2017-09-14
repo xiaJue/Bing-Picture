@@ -2,6 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/menu_home_import_data"
+        android:title="导入更多数据"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/menu_home_about"
         android:title="关于"
         app:showAsAction="never"/>

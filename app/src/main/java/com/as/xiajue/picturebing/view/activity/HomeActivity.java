@@ -8,17 +8,20 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.as.xiajue.picturebing.Const;
 import com.as.xiajue.picturebing.R;
-import com.as.xiajue.picturebing.model.utils.L;
 import com.as.xiajue.picturebing.model.adapter.HomeRecyclerAdapter;
 import com.as.xiajue.picturebing.model.adapter.SpaceItemDecoration;
 import com.as.xiajue.picturebing.model.bean.HomeItemData;
 import com.as.xiajue.picturebing.model.manager.SnackbarManager;
-import com.as.xiajue.picturebing.presenter.HomePresenter;
 import com.as.xiajue.picturebing.model.utils.DensityUtils;
 import com.as.xiajue.picturebing.model.utils.MenuUtils;
+import com.as.xiajue.picturebing.model.utils.NetUtils;
+import com.as.xiajue.picturebing.presenter.HomePresenter;
 import com.as.xiajue.picturebing.view.activity.viewInterface.IHomeView;
 import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter;
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
@@ -40,10 +43,11 @@ public class HomeActivity extends BaseActivity implements IHomeView{
     private List<HomeItemData> mDataList;//list view data
     private HomeRecyclerAdapter mAdapter;//list view adapter
     private HomePresenter mPresenter;//the activity data and biz handle
+    private TextView mInternetFailureText;//internet connect failure show text
+    private ProgressBar mProgressBar;//import data progress
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        L.e("log ok...");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         //始终在右上角显示菜单
@@ -63,6 +67,8 @@ public class HomeActivity extends BaseActivity implements IHomeView{
         mToolbar = getView(R.id.home_toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        mInternetFailureText = getView(R.id.home_internet_failure_text);
+        mProgressBar = getView(R.id.home_progress);
         //初始化数据
         Const.initialItemSpace(this);
         itemSpace = Const.itemSpace;
@@ -100,10 +106,15 @@ public class HomeActivity extends BaseActivity implements IHomeView{
         });
     }
 
+    public boolean mNetState;//网络状态
+
     @Override
     protected void onResume() {
         super.onResume();
-        mRefreshLayout.startRefresh();
+        //如果是没网状态并在返回界面时发现有网络的话则刷新
+        if (NetUtils.isNetworkConnected(this)&&!mNetState) {
+            mRefreshLayout.startRefresh();
+        }
     }
 
     /**
@@ -172,7 +183,27 @@ public class HomeActivity extends BaseActivity implements IHomeView{
     }
 
     @Override
+    public TextView getInternetFialureText() {
+        return mInternetFailureText;
+    }
+
+    @Override
+    public ProgressBar getProgressBar() {
+        return mProgressBar;
+    }
+
+    @Override
     public void showInternetFailure() {
         SnackbarManager.showInternetFialure(mRecyclerView,this);
+    }
+
+    @Override
+    public void showToast(String text,int... lengths) {
+        Toast.makeText(this, text, lengths.length>0?lengths[0]:Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void setNetState(boolean b) {
+        mNetState=b;
     }
 }

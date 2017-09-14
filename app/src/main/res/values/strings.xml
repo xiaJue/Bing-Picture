@@ -35,8 +35,14 @@
     com.squareup.retrofit2:converter-scalars:2.0.0-beta4\n
     universal-image-loader-1.9.5.jar\n
     com.dinuscxj:circleprogressbar:1.1.1\n
+    org.greenrobot:greendao:3.2.2\n
     </string>
     <string name="use_open_source">使用的开源库</string>
     <string name="w_code_ui"><![CDATA[设计&开发&美工]]></string>
     <string name="version">Version</string>
+    <string name="load_success">成功加载</string>
+    <string name="import_success">已导入</string>
+    <string name="load_success_end">条数据...</string>
+    <string name="format_error">读取数据文件出错...</string>
+    <string name="internet_failure_or_file_not_exist">网络出错或暂无数据文件...</string>
 </resources>

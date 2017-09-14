@@ -27,7 +27,9 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerInParent="true"
-            app:progress_text_color="@color/picActionBarTextColor" />
+            app:progress_background_color="#D3D3D3"
+            app:style="solid"
+            app:progress_text_color="#1E90FF" />
 
         <com.as.xiajue.picturebing.view.custom.DateTranBackTextView
             android:id="@+id/item_home_tv"

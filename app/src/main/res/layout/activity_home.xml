@@ -23,4 +23,7 @@
         </android.support.v7.widget.RecyclerView>
 
     </com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout>
+
+    <include layout="@layout/home_info"/>
+
 </android.support.design.widget.CoordinatorLayout>

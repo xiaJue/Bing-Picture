@@ -1,4 +1,7 @@
 apply plugin: 'com.android.application'
+// In your app projects build.gradle file:
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao' // apply plugin
 
 android {
     compileSdkVersion 25
@@ -8,7 +11,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 25
         versionCode 1
-        versionName "1.1"
+        versionName "1.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -17,8 +20,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    greendao {
+        schemaVersion 1 //数据库版本号
+        daoPackage 'com.as.xiajue.picturebing.model.database.genUtils' //自动生成的工具类的包名
+        targetGenDir 'src/main/java' //路径
+    }
 }
-
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -41,4 +48,6 @@ dependencies {
     compile files('libs/universal-image-loader-1.9.5.jar')
     //进度条
     compile 'com.dinuscxj:circleprogressbar:1.1.1'
+    //greendao
+    compile 'org.greenrobot:greendao:3.2.2' // add library
 }

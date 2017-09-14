@@ -1,5 +1,6 @@
 package com.as.xiajue.picturebing.model.internet;
 
+import com.as.xiajue.picturebing.Const;
 import com.as.xiajue.picturebing.model.bean.HomeItemDataList;
 
 import retrofit2.Call;
@@ -13,6 +14,11 @@ public interface RetrofitService {
     /**
      * 发起一个get请求获取网络数据并解析成javabean
      */
-    @GET("HPImageArchive.aspx?format=js")
+    @GET(Const.BING_IMAGE_JSON_URL)
     Call<HomeItemDataList> getHomeItemData(@Query("idx") int idx, @Query("n") int n);
+    /**
+     * 发起一个get请求获取网络数据并解析成javabean
+     */
+    @GET(Const.GIT_JSON_URL)
+    Call<HomeItemDataList> getImportHomeItemData();
 }

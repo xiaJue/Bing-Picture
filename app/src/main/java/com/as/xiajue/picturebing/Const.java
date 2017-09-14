@@ -28,9 +28,12 @@ public class Const {
 
     public static final int LOAD_JSON_COUNT = 3;//一次显示的条目个数、最大为8
     public static final int ITEM_LIN_COUNT = 1;//一行显示的条目个数
-    public static final String BASE_URL = "http://www.bing.com/";
-    public static final String URL_ADDRESS = "http://www.bing.com/HPImageArchive" +
-            ".aspx?format=js&idx=";
+    public static final String BASE_URL = "http://www.bing.com/";//bing的根域名
+    public static final String BING_IMAGE_JSON_URL="HPImageArchive.aspx?format=js";//bing的url参数等
+
     public static final String DOWNLOAD_IMAGE_DIR = Environment.getExternalStorageDirectory() +
-            File.separator + "bingDownload" + File.separator;
+            File.separator + "bingDownload" + File.separator;//保存图片的路径
+
+    public static final String GIT_JSON_BASE_URL = "https://raw.githubusercontent.com/";//git访问资源的根域名
+    public static final String GIT_JSON_URL="xiaJue/PictureBing/master/database.json";//git上的json地址
 }

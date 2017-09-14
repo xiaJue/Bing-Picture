@@ -25,14 +25,22 @@ public class RetrofitUtils {
     }
 
     /**
-     * 使用Retrofit网络框架完成网络的访问
-     */
-
-    /**
      * 获取并解析json数据
      */
     public void getDataListFromInternet(int idx,Callback callback){
         Call<HomeItemDataList> call = mService.getHomeItemData(idx, Const.LOAD_JSON_COUNT);
+        call.enqueue(callback);
+    }
+
+    /**
+     *获得github上的数据文件解析
+     */
+    public void getImportDataListFromInternet(Callback callback){
+        //
+        Retrofit retrofit =new Retrofit.Builder().baseUrl(Const.GIT_JSON_BASE_URL).addConverterFactory(GsonConverterFactory.create()).
+                client(client).build();
+        RetrofitService service = retrofit.create(RetrofitService.class);
+        Call<HomeItemDataList> call = service.getImportHomeItemData();
         call.enqueue(callback);
     }
 }
