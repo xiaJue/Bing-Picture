@@ -12,7 +12,7 @@
 <br>
 [GreenDao2.3.3](https://github.com/greenrobot/greenDAO)
 <br>
-[下载1.2apk](https://github.com/xiaJue/PictureBing/blob/master/1.2.apk)
+[下载1.2apk](https://github.com/xiaJue/PictureBing/raw/master/1.2.apk)
 <br>
 *****
 版本Version1.1<br><br>
