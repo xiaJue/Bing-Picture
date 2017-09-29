@@ -16,8 +16,7 @@
 <br>
 *****
 版本Version1.1<br><br>
-<img width="400" height="711" src="https://raw.githubusercontent.com/xiaJue/PictureBing/master/Screenshot/Screenshot_2017-09-29-14-31-50.png">
-<br>
+<img width="400" height="711" src="https://raw.githubusercontent.com/xiaJue/PictureBing/master/Screenshot/Screenshot_2017-09-29-14-31-50.png">     
 <img width="400" height="711" src="https://github.com/xiaJue/PictureBing/raw/master/Screenshot/Screenshot_2017-09-29-14-33-39.png">
 <br>
 
