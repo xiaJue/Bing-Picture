@@ -16,9 +16,9 @@
 <br>
 *****
 版本Version1.1<br><br>
-<img width="100" height="177" src="https://raw.githubusercontent.com/xiaJue/PictureBing/master/Screenshot/Screenshot_2017-09-29-14-31-50.png">
+<img width="400" height="711" src="https://raw.githubusercontent.com/xiaJue/PictureBing/master/Screenshot/Screenshot_2017-09-29-14-31-50.png">
 <br>
-<img width="100" height="177" src="https://github.com/xiaJue/PictureBing/raw/master/Screenshot/Screenshot_2017-09-29-14-33-39.png">
+<img width="400" height="711" src="https://github.com/xiaJue/PictureBing/raw/master/Screenshot/Screenshot_2017-09-29-14-33-39.png">
 <br>
 
 更新:优化项目结构和代码。网络:Retrofit2 加载图片/缓存图片:ImageLoader  增加加载图片进度条显示 
