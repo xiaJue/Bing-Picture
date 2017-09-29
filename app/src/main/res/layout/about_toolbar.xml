@@ -59,7 +59,9 @@
             android:contentInsetEnd="0dp"
             app:contentInsetStart="0dp"
             app:layout_collapseMode="pin"
-            app:popupTheme="@style/ToolbarPopupTheme"/>
+            app:popupTheme="@style/ToolbarPopupTheme">
+
+        </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.CollapsingToolbarLayout>
 </android.support.design.widget.AppBarLayout>

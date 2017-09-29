@@ -24,4 +24,7 @@
     <color name="bout_text_color">#000000</color>
     <color name="bout_toolbar_text_color">#ffffff</color>
     <color name="menuBgColor">#ffffff</color>
+    <color name="progress_background">#45494A</color>
+    <color name="progress_color">#ffffff</color>
+
 </resources>
