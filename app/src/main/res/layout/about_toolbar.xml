@@ -1,6 +1,7 @@
 <android.support.design.widget.AppBarLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/about_appBar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -55,8 +56,9 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/about_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?android:attr/actionBarSize"
+            android:layout_height="wrap_content"
             android:contentInsetEnd="0dp"
+            android:minHeight="?android:attr/actionBarSize"
             app:contentInsetStart="0dp"
             app:layout_collapseMode="pin"
             app:popupTheme="@style/ToolbarPopupTheme">

@@ -22,6 +22,8 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.io.File;
 
+import static com.as.xiajue.picturebing.model.utils.FileUtils.setApi23;
+
 /**
  * xiaJue 2017/9/5创建
  */
@@ -38,7 +40,7 @@ public class MaxPresenter {
     /**
      * 当点击页面
      */
-    public void onClick(View view,int id){
+    public void onClick(View view, int id) {
         switch (id) {
             case R.id.item_maxP_imageView:
                 showOrHideAnimation();
@@ -51,29 +53,34 @@ public class MaxPresenter {
     /**
      * 当viewPager滑动
      */
-    public void onPageChange(MaxPicItemData data, int position){
-        mIMaxView.getMToolbarTitleText().setText((position + 1) + "/" + mIMaxView.getDataList().size());
+    public void onPageChange(MaxPicItemData data, int position) {
+        mIMaxView.getMToolbarTitleText().setText((position + 1) + "/" + mIMaxView.getDataList()
+                .size());
         mIMaxView.getDateTextView().setText(data.getCopyright());
         mIMaxView.getDateTextView().setDateText(HomeItemData.getFormatDate(data.getEnddate()));
         if (!isShow) {//isShow为false说明现在控件处于隐藏状态
             bottomAnimation();
         }
     }
+
     /**
      * 点击消失或显示标题栏、底部textView相关操作
      */
     private boolean isShow = false;//flag--显示or隐藏
     private static final int HORIZONTAL = 998;
     private static final int VERTICAL = 999;
+
     /**
      * 触发动画效果
      */
     private void showOrHideAnimation() {
         //标题栏的动画
-        setViewAnimation(mIMaxView.getMToolbar(), mIMaxView.getMToolbar().getHeight(), VERTICAL, isShow,
+        setViewAnimation(mIMaxView.getMToolbar(), mIMaxView.getMToolbar().getHeight(), VERTICAL,
+                isShow,
                 BOTTOM_ANIMATION_DURATION);
         //底部的动画
-        setViewAnimation(mIMaxView.getDateTextView(), mIMaxView.getDateTextView().getWidth(), HORIZONTAL, isShow,
+        setViewAnimation(mIMaxView.getDateTextView(), mIMaxView.getDateTextView().getWidth(),
+                HORIZONTAL, isShow,
                 BOTTOM_ANIMATION_DURATION);
         isShow = !isShow;
     }
@@ -82,9 +89,11 @@ public class MaxPresenter {
      * 只是播放底部的动画
      */
     private void bottomAnimation() {
-        setViewAnimation(mIMaxView.getDateTextView(), mIMaxView.getDateTextView().getWidth(), HORIZONTAL, false,
+        setViewAnimation(mIMaxView.getDateTextView(), mIMaxView.getDateTextView().getWidth(),
+                HORIZONTAL, false,
                 BOTTOM_ANIMATION_DURATION);
-        setViewAnimation(mIMaxView.getDateTextView(), mIMaxView.getDateTextView().getWidth(), HORIZONTAL, true,
+        setViewAnimation(mIMaxView.getDateTextView(), mIMaxView.getDateTextView().getWidth(),
+                HORIZONTAL, true,
                 BOTTOM_ANIMATION_DURATION);
     }
 
@@ -137,41 +146,54 @@ public class MaxPresenter {
         });
         view.startAnimation(set);
     }
+
+    public int menu_code;
+    public static final int MENU_CODE_SAVE=557;
+    public static final int MENU_CODE_SHARE=597;
+
     /**
      * 当菜单选择
      */
-    public void onMenuSelect(MenuItem item, int id){
+    public void onMenuSelect(MenuItem item, int id) {
         switch (id) {
             case R.id.menu_max_save:
                 /**
                  * 保存图片--因为图片在一开始已经被缓存到本地了
                  * 为了节省流量直接从缓存文件中获取图片
                  */
-                saveImage(mIMaxView.getUrl());
+                menu_code = MENU_CODE_SAVE;
+                if (!setApi23((Activity) mContext)) {
+                    saveImage(mIMaxView.getUrl());
+                }
                 break;
             case R.id.menu_max_share:
                 /**
                  * 分享图片
                  */
-                shareImage(mIMaxView.getUrl());
+                menu_code = MENU_CODE_SHARE;
+                if (!setApi23((Activity) mContext)) {
+                    shareImage(mIMaxView.getUrl());
+                }
                 break;
             case android.R.id.home:
                 /**
                  * 左上角返回按钮
                  */
-                ((Activity)mContext).finish();
+                ((Activity) mContext).finish();
                 break;
         }
     }
+
     public File shareTempFile;
+
     /**
      * 分享图片
      */
-    private void shareImage(String url) {
+    public void shareImage(String url) {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("image/*");
         //获取临时文件的目录
-        String path = Const.DOWNLOAD_IMAGE_DIR + "temp" + File.separator;
+        String path = Const.DOWNLOAD_IMAGE_DIR + File.separator;
         //将缓存文件复制到临时文件夹
         File file = ImageLoader.getInstance().getDiskCache().get(url);
         FileUtils.copyFile(file, path, new File[1]);
@@ -182,13 +204,14 @@ public class MaxPresenter {
         intent.putExtra(Intent.EXTRA_STREAM, uri);
         intent.putExtra(Intent.EXTRA_SUBJECT, "Share");
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        mContext.startActivity(Intent.createChooser(intent, mContext.getString(R.string.share_how)));
+        mContext.startActivity(Intent.createChooser(intent, mContext.getString(R.string
+                .share_how)));
     }
 
     /**
      * 保存图片
      */
-    private void saveImage(String url) {
+    public void saveImage(String url) {
         File[] outFile = new File[1];
         int resultCode = FileUtils.copyFile(ImageLoader.getInstance().getDiskCache().get(url),
                 Const.DOWNLOAD_IMAGE_DIR, outFile);

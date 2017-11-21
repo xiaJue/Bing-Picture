@@ -1,5 +1,9 @@
 package com.as.xiajue.picturebing.model.utils;
 
+import android.app.Activity;
+import android.os.Build;
+import android.support.v4.app.ActivityCompat;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -15,7 +19,6 @@ public class FileUtils {
     private static final int EXIST = 2;
 
     public static int copyFile(File file, String dir, File[] outFile) {
-        L.e("------------------" + file.getAbsolutePath());
         if (file.exists()) {
             outFile[0] = new File(dir, changeSuff(file.getName(), ".jpg"));
             return toCopy(file, outFile[0]);
@@ -82,4 +85,22 @@ public class FileUtils {
         L.e("index=" + index);
         return index != -1 ? name.substring(0, index) : name + suff;
     }
+
+    public static final int PERMISSIONS_REQUEST_CODE = 1;
+
+    /**
+     * 发起一个写文件的权限请求
+     */
+    public static boolean setApi23(Activity activity) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            /**
+             * API23以上版本需要发起写文件权限请求
+             */
+            ActivityCompat.requestPermissions(activity, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, PERMISSIONS_REQUEST_CODE);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

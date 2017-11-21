@@ -1,7 +1,9 @@
 package com.as.xiajue.picturebing.view.activity;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
@@ -10,11 +12,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.as.xiajue.picturebing.R;
 import com.as.xiajue.picturebing.model.adapter.MaxPicAdapter;
 import com.as.xiajue.picturebing.model.bean.HomeItemData;
 import com.as.xiajue.picturebing.model.bean.MaxPicItemData;
+import com.as.xiajue.picturebing.model.utils.FileUtils;
 import com.as.xiajue.picturebing.presenter.MaxPresenter;
 import com.as.xiajue.picturebing.view.custom.DateTranBackTextView;
 import com.as.xiajue.picturebing.view.activity.viewInterface.IMaxView;
@@ -39,16 +43,45 @@ public class MaxPictureActivity extends BaseActivity implements View.OnClickList
     private int mPosition, mSize;
     private String mCopyright, mEnddate;
     private MaxPresenter mPresenter;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_max_picture);
+        super.onCreate(savedInstanceState);
         initIntentData(getIntent());
         mPresenter = new MaxPresenter(this);
         setViewPager();
         setTextView();
         setToolbar();
     }
+
+    @Override
+    public View getTopViewToBaseActivity() {
+        return null;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case FileUtils.PERMISSIONS_REQUEST_CODE:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager
+                        .PERMISSION_GRANTED) {
+                    Toast.makeText(this, "权限获取成功！将用于保存或分享图片时使用!", Toast.LENGTH_SHORT).show();
+
+                    if (mPresenter.menu_code == MaxPresenter.MENU_CODE_SAVE) {
+                        mPresenter.saveImage(mUrl);
+                    } else if (mPresenter.menu_code == MaxPresenter.MENU_CODE_SHARE) {
+                        mPresenter.shareImage(mUrl);
+                    }
+
+                } else {
+                    Toast.makeText(this, "权限获取失败！将不能正常保存或分享图片!", Toast.LENGTH_SHORT).show();
+                }
+                break;
+        }
+    }
+
     /**
      * 初始化从上一个activity传递过来的数据
      */
@@ -57,6 +90,7 @@ public class MaxPictureActivity extends BaseActivity implements View.OnClickList
         mDataList = (List<MaxPicItemData>) intent.getSerializableExtra("_maxList");
         setSomeInfo(mPosition - 1);
     }
+
     /**
      * 拿到指定条目的数据并赋值到成员中
      */
@@ -81,7 +115,7 @@ public class MaxPictureActivity extends BaseActivity implements View.OnClickList
             View view = mInflater.inflate(R.layout.item_maxpic_viewpager, null);
             mViewList.add(view);
         }
-        mPicAdapter = new MaxPicAdapter(this,mDataList, mViewList);
+        mPicAdapter = new MaxPicAdapter(this, mDataList, mViewList);
         mViewPager = getView(R.id.maxP_viewPager);
         mViewPager.setAdapter(mPicAdapter);
         mViewPager.setCurrentItem(mPosition - 1);
@@ -90,7 +124,7 @@ public class MaxPictureActivity extends BaseActivity implements View.OnClickList
             public void onChange(int position) {
                 setSomeInfo(position);
                 //更新数据和播放动画
-                mPresenter.onPageChange(mDataList.get(position),position);
+                mPresenter.onPageChange(mDataList.get(position), position);
             }
         });
         mPicAdapter.setOnClickListener(this);
@@ -121,7 +155,7 @@ public class MaxPictureActivity extends BaseActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         //显示或隐藏--移动渐变动画
-        mPresenter.onClick(v,v.getId());
+        mPresenter.onClick(v, v.getId());
     }
 
     @Override
@@ -132,7 +166,7 @@ public class MaxPictureActivity extends BaseActivity implements View.OnClickList
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-       mPresenter.onMenuSelect(item,item.getItemId());
+        mPresenter.onMenuSelect(item, item.getItemId());
         return super.onOptionsItemSelected(item);
     }
 

@@ -32,11 +32,16 @@ public class AboutActivity extends BaseActivity implements IAboutView {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
+        super.onCreate(savedInstanceState);
         mPresenter = new AboutPresenter(this);
         bindView();
         setData();
+    }
+
+    @Override
+    public View getTopViewToBaseActivity() {
+        return  findViewById(R.id.about_appBar);
     }
 
     private void setData() {
@@ -44,7 +49,7 @@ public class AboutActivity extends BaseActivity implements IAboutView {
         MaxPicItemData data = (MaxPicItemData) intent.getSerializableExtra("data");
         if (data != null) {
             mPresenter.onSetImage(data.getUrl());
-        }else{
+        } else {
             mPresenter.onSetImage("");
         }
         mPresenter.onSetVersion();
@@ -65,7 +70,6 @@ public class AboutActivity extends BaseActivity implements IAboutView {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
     }
-
 
 
     @Override
@@ -89,7 +93,7 @@ public class AboutActivity extends BaseActivity implements IAboutView {
             } else if (tt instanceof File) {
                 mImageView.setImage(ImageSource.uri(Uri.fromFile((File) tt)));
             }
-        }else{
+        } else {
             mImageView.setImage(ImageSource.resource(R.mipmap.toolbar_bg));
         }
     }
