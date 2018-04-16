@@ -3,7 +3,7 @@ package com.as.xiajue.picturebing;
 import android.content.Context;
 import android.os.Environment;
 
-import com.as.xiajue.picturebing.model.utils.DensityUtils;
+import com.as.xiajue.picturebing.utils.DensityUtils;
 
 import java.io.File;
 

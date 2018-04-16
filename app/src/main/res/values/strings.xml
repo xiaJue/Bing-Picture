@@ -18,31 +18,61 @@
         每天更新一张清晰风景图片。\n数据来源于:
         <html><a href='#'>https://bing.ioliu.cn/</a>\n数据的获取:
             <a href='#'>bing.com/HPImageArchive.aspx?format=js&amp;idx=2&amp;n=1</a>
-            \n测试发现它只能获取到大概10天的数据。但加载过就可以保留了。另外喜欢就点保存吧！\n\n
-            该About UI参考于:<a href='#'>https://github.com/drakeet/Meizhi</a> 的About UI
+            \n测试发现它只能获取到大概10天的数据。但加载过就可以保留了。\n\n
         </html>
     </string>
     <string name="developers">开发者</string>
     <string name="open_source_list">
-    com.lcodecorex:tkrefreshlayout:1.0.7\n
-    com.android.support:cardview-v7:22.2.0\n
-    com.android.support:recyclerview-v7:22.2.0\n
-    com.squareup.okhttp3:okhttp:3.8.1\n
-    com.davemorrissey.labs:subsampling-scale-image-view:3.6.0\n
-    com.android.support:design:25.2.0\n
-    com.squareup.retrofit2:retrofit:2.0.0-beta4\n
-    com.squareup.retrofit2:converter-gson:2.0.0-beta4\n
-    com.squareup.retrofit2:converter-scalars:2.0.0-beta4\n
-    universal-image-loader-1.9.5.jar\n
-    com.dinuscxj:circleprogressbar:1.1.1\n
-    org.greenrobot:greendao:3.2.2\n
+    com.lcodecorex:tkrefreshlayout:1.0.7
+    \n
+    com.android.support:cardview-v7:22.2.0
+    \n
+    com.android.support:recyclerview-v7:22.2.0
+    \n
+    com.davemorrissey.labs:subsampling-scale-image-view:3.6.0
+    \n
+    com.dinuscxj:circleprogressbar:1.1.1
+    \n
+    com.github.CymChad:BaseRecyclerViewAdapterHelper:v1.9.7
+    \n
+    com.github.bumptech.glide:glide:3.7.0
+    \n
+    io.reactivex.rxjava2:rxjava:2.0.7
+    \n
+    io.reactivex.rxjava2:rxandroid:2.0.1
+    \n
+    com.trello.rxlifecycle2:rxlifecycle-android:2.1.0
+        \n
+    com.trello.rxlifecycle2:rxlifecycle-components:2.1.0
+        \n
+    com.trello.rxlifecycle2:rxlifecycle-navi:2.1.0
+    \n
+    com.squareup.retrofit2:retrofit:2.1.0
+        \n
+    com.squareup.retrofit2:adapter-rxjava2:2.2.0
+        \n
+    com.squareup.retrofit2:converter-gson:2.1.0
+        \n
+    com.squareup.retrofit2:converter-scalars:2.0.0
+    \n
+    com.squareup.okhttp3:okhttp:3.5.0
+        \n
+    com.squareup.okhttp3:logging-interceptor:3.6.0
+    \n
+    compile files(libs/universal-image-loader-1.9.5.jar
+    \n
+    org.greenrobot:greendao:3.2.2
+        \n
     </string>
     <string name="use_open_source">使用的开源库</string>
     <string name="w_code_ui"><![CDATA[设计&开发&美工]]></string>
     <string name="version">Version</string>
     <string name="load_success">成功加载</string>
-    <string name="import_success">已导入</string>
     <string name="load_success_end">条数据...</string>
     <string name="format_error">读取数据文件出错...</string>
     <string name="internet_failure_or_file_not_exist">网络出错或暂无数据文件...</string>
+    <string name="original">查看原图</string>
+    <string name="about">关于</string>
+    <string name="permission_success">权限获取成功！将用于保存或分享图片时使用!</string>
+    <string name="permission_failure">权限获取失败！将不能正常保存或分享图片!</string>
 </resources>

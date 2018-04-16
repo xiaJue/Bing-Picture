@@ -2,10 +2,10 @@ package com.as.xiajue.picturebing;
 
 import android.test.AndroidTestCase;
 
-import com.as.xiajue.picturebing.model.database.ImageDao;
-import com.as.xiajue.picturebing.model.database.bean.ImageBean;
-import com.as.xiajue.picturebing.model.utils.L;
-import com.as.xiajue.picturebing.model.utils.NetUtils;
+import com.as.xiajue.picturebing.database.ImageDao;
+import com.as.xiajue.picturebing.bean.ImageBean;
+import com.as.xiajue.picturebing.utils.L;
+import com.as.xiajue.picturebing.utils.NetUtils;
 
 import java.util.List;
 
